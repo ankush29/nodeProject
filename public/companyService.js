@@ -4,7 +4,7 @@ companies.factory('companyService', ['$q', 'esFactory', '$location', function($q
   });
 
 
-  var search = function(term, offset) {
+  var search = function(term) {
     var deferred = $q.defer();
     var query = {
       match_phrase_prefix : {
@@ -18,7 +18,7 @@ companies.factory('companyService', ['$q', 'esFactory', '$location', function($q
       type: 'startup',
       body: {
         size: 10,
-        from: (offset || 0) * 10,
+        from: 0,
         query: query
       }
     }).then(function(result) {

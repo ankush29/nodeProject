@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en-gb" class="no-js">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="description" content="Find companies in India">
+		<meta name="keywords" content="startup,comapny,comapnies,search">
+		<meta name="author" content="Ankush saini">
+		<title>Indian Startup Database</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="/stylesheets/css/build.min.css">
+	</head>
+	<body>
+		<div ng-app="companies" ng-controller="companyCtrl">
+			<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#"> <img alt="Brand" src="/images/cd-logo.jpg"></a>
+			      <a class="navbar-brand text-type" href="#"> Companies Database</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li><a href="#">HOME </a></li>
+			        <li><a href="#">ABOUT</a></li>
+			      </ul>
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="#">Signup</a></li>
+			        <li><a href="#">Login</a></li>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+			<div class="company_banner">
+				<img class="banner"src="/images/companybanner.jpg">
+				<div class="content">
+					<p>India's No.1 Startup & Investor Graph Database</p>
+					<p>Discover and track India's fastest-growing companies and investors</p>
+			  	<div class="search-box">
+			  		<input type="text" class="" autocomplete="off" placeholder="Search by company name" name="search-company" id="search-company" ng-model="searchTerm" ng-change="search()" ng-keydown="checkIfEnterKeyWasPressed($event)">
+			  		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	  		    <div id="suggest" ng-cloak>
+	  		    	<ul class="media-list">
+	  		      	<li class="media" ng-repeat="company in comapnies | unique: 'name'"  ng-class="{'selected':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false">
+	  		         	<a class="profile-img pull-left" ng-href="{{company.website}}">
+	  		            <img class="media-object" ng-src="{{company.logo}}">
+	  		          </a>
+	  		          <a class="pull-left" ng-href="{{company.website}}">
+	  		      			<div class="media-body">
+	  		        			<h5 class="media-heading">{{company.name}}<span> - {{company.country}} , {{company.city}}</span></h5>
+	  		        			<h6 class="media-city"><span ng-repeat="market in company.markets">#{{market}}  </span></h6>
+	  		      			</div>
+	  		    		  </a>
+	  		        </li>
+	  		      </ul>
+	  			  </div>
+			   	</div>
+				</div>
+			</div>
+			<div class="benefits-container">
+				<p class="t-l-p-bridezilla">ABOUT COMPANIES DATABASE</p>
+				<hr/>
+				<div class="row benefits-row">
+					<div class="col-md-4 col-md-offset-2 col-xs-12 b-f-c">
+						<div class="col-md-2 col-xs-2">
+							<img src="/images/contact_details.svg" alt="lowest-price" width="40">
+						</div>
+						<div class="col-md-10 col-xs-10">
+							<strong>What is Lorem Ipsum</strong><br/>
+							<span>Lorem Ipsum is simply dummy text of the printing!</span>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-1 col-xs-12">
+						<div class="col-md-2 col-xs-2">
+							<img src="/images/indoor&outdoor.png" alt="backup" width="40">
+						</div>
+						<div class="col-md-10 col-xs-10">
+							<strong>Why do we use it?</strong><br/>
+							<span>It is a long established fact that a reader will be distracted by the readable</span>
+						</div>
+					</div>
+				</div>
+				<div class="row benefits-row">
+					<div class="col-md-4 col-md-offset-2 col-xs-12 b-f-c">
+						<div class="col-md-2 col-xs-2">
+							<img src="/images/poolside.svg" alt="refund" width="40">
+						</div>
+						<div class="col-md-10 col-xs-10">
+							<strong>Where can I get some?</strong><br/>
+							<span>Time for availability guaranteed.</span>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-1 col-xs-12">
+						<div class="col-md-2 col-xs-2">
+							<img src="/images/collabcw.svg" alt="block-dates" width="40">
+						</div>
+						<div class="col-md-10 col-xs-10">
+							<strong>Where does it come from?</strong><br/>
+							<span>iece of classical Latin literature from 45 BC.</span>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<br/>
+			</div>
+			<div class="book-container">
+				<p class="book-container-p">How do you find?</p>
+				<hr/>
+				<div class="row book-container-row">
+					<div class="col-md-4">
+						<img class="circle-img" src="/images/1.svg">
+						<h4>d ut perspiciatis unde omn</h4>
+						<p>m quia dolor sit amet, consectetur, adipisci velit, sed qu<span><img src="/images/flash.png" style="position: relative;top: -2px;left: 2px;"></span></p>
+					</div>
+					<div class="col-md-4">
+						<img class="circle-img" src="/images/2.svg">
+						<h4> fugiat quo</h4>
+						<p> nsequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate  </p>
+					</div>
+					<div class="col-md-4">
+						<img class="circle-img" src="/images/3.svg">
+						<h4>eos et accusamus</h4>
+						<p>ui blanditiis praesentium voluptatum deleniti atque corrupti quos d</p>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<center>
+					<div><img ng-src="/images/cd-logo.jpg"><span>Companies DataBase</span></div>
+					<p>Copyright © 2016 CD. All rights reserved. Terms of Use | Privacy Policy</p>
+				</center>
+			</footer>
+		</div>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	  <script src="/javascript/angular.js"></script>
+	  <script src="/javascript/companies.js"></script>
+	  <script src="/javascript/companyService.js"></script>
+	</body>
+</html>

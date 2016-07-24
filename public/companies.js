@@ -7,20 +7,18 @@ window.companies = angular.module('companies', ['elasticsearch'],
 
 companies.controller('companyCtrl', ['companyService', '$scope', '$location', function(companyService, $scope, $location) {
 
-  $scope.comapnies = [];        
-  $scope.page = 0;    
+  $scope.comapnies = [];      
 
   $scope.searchTerm;
 
   $scope.search = function() {
-    $scope.page = 0;
     $scope.comapnies = [];
     $scope.loadMore();
   };
 
 
   $scope.loadMore = function() {
-    companyService.search($scope.searchTerm, $scope.page++).then(function(results) {
+    companyService.search($scope.searchTerm).then(function(results) {
 
 
       for (var ii = 0; ii < results.length; ii++) {
@@ -30,7 +28,7 @@ companies.controller('companyCtrl', ['companyService', '$scope', '$location', fu
   };
   $scope.checkIfEnterKeyWasPressed = function($event){
     var keyCode = $event.which || $event.keyCode;
-    if (keyCode === 13 && $(event.target).val() != '') {
+    if (keyCode === 13 && $(event.target).val() != '' && $('.selected').children().first().attr('href') != undefined) {
       //$('.selected').children().first().click();
       window.location.href = $('.selected').children().first().attr('href');
     } 
