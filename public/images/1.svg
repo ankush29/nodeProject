@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="56px" height="55px" viewBox="0 0 56 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.Transaction-landing-page" transform="translate(-258.000000, -1060.000000)">
+            <g id="1" transform="translate(259.000000, 1061.000000)">
+                <g id="Group-6">
+                    <circle id="Oval-2" stroke="#F8E81C" cx="29" cy="28" r="25"></circle>
+                    <circle id="Oval-2" stroke="#0CD168" cx="27" cy="25" r="25"></circle>
+                    <circle id="Oval-2" stroke="#E72E77" cx="25" cy="28" r="25"></circle>
+                </g>
+                <polygon fill="#222222" points="27.696 35 25.704 35 25.704 21.632 23.136 24.344 21.936 23.12 25.944 18.992 27.696 18.992"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
