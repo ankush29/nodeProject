@@ -7,12 +7,13 @@ companies.controller('companyCtrl', ['companySearch', '$scope', '$location', fun
   $scope.searchTerm;
 
   $scope.search = function() {
-    $scope.comapnies = [];
+    
     $scope.searchValue();
   };
 
 
   $scope.loadMore = function() {
+    $scope.comapnies = [];
     companySearch($scope.searchTerm).then(function(results) {
 
       for (var i = 0; i < results.data.length; i++) {
